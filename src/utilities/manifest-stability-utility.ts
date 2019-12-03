@@ -31,6 +31,8 @@ export async function checkManifestStability(kubectl: Kubectl, resources: Resour
                     } else {
                         console.log('ServiceExternalIP', resource.name, status.loadBalancer.ingress[0].ip);
                         console.log('Am at line:33');
+                        console.log('Application URL: http://', status.loadBalancer.ingress[0].ip);
+                        console.log('Resource Summary: https://<placeHolder>')
                     }
                 }
             } catch (ex) {
