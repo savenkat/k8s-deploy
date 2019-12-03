@@ -30,6 +30,7 @@ export async function checkManifestStability(kubectl: Kubectl, resources: Resour
                         await waitForServiceExternalIPAssignment(kubectl, resource.name);
                     } else {
                         console.log('ServiceExternalIP', resource.name, status.loadBalancer.ingress[0].ip);
+                        console.log('Am at line:33');
                     }
                 }
             } catch (ex) {
@@ -112,6 +113,7 @@ async function waitForServiceExternalIPAssignment(kubectl: Kubectl, serviceName:
         let status = (getService(kubectl, serviceName)).status;
         if (isLoadBalancerIPAssigned(status)) {
             console.log('ServiceExternalIP', serviceName, status.loadBalancer.ingress[0].ip);
+            console.log('Am at line:116');
             return;
         }
     }
