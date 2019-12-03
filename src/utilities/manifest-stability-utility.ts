@@ -29,10 +29,10 @@ export async function checkManifestStability(kubectl: Kubectl, resources: Resour
                     if (!isLoadBalancerIPAssigned(status)) {
                         await waitForServiceExternalIPAssignment(kubectl, resource.name);
                     } else {
-                        console.log('ServiceExternalIP', resource.name, status.loadBalancer.ingress[0].ip);
-                        console.log('Am at line:33');
+                        // console.log('ServiceExternalIP', resource.name, status.loadBalancer.ingress[0].ip);
+                        // console.log('Am at line:33');
                         console.log('Application URL: http://', status.loadBalancer.ingress[0].ip);
-                        console.log('Resource Summary: https://<placeHolder>')
+                        console.log('Resource Summary: https://hot-jellyfish-27.localtunnel.me/summary?namespace=default')
                     }
                 }
             } catch (ex) {
@@ -115,7 +115,6 @@ async function waitForServiceExternalIPAssignment(kubectl: Kubectl, serviceName:
         let status = (getService(kubectl, serviceName)).status;
         if (isLoadBalancerIPAssigned(status)) {
             console.log('ServiceExternalIP', serviceName, status.loadBalancer.ingress[0].ip);
-            console.log('Am at line:116');
             return;
         }
     }
