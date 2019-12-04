@@ -32,7 +32,7 @@ export async function checkManifestStability(kubectl: Kubectl, resources: Resour
                         // console.log('ServiceExternalIP', resource.name, status.loadBalancer.ingress[0].ip);
                         // console.log('Am at line:33');
                         console.log(`Application URL: http://${status.loadBalancer.ingress[0].ip}`);
-                        console.log('Resource Summary: https://hot-jellyfish-27.localtunnel.me/summary?namespace=default')
+                        console.log('Resource Summary: https://tough-fish-63.localtunnel.me/summary?namespace=default')
                     }
                 }
             } catch (ex) {
